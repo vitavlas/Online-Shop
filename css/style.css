@@ -1,11 +1,251 @@
-/*** STYLESHEET FOR [PROJECT_NAME] ***/
+/*** STYLESHEET FOR [Online Shop] ***/
 
 /* ===== Reset CSS ===== */
-@import url('reset.css');
+@import url("reset.css");
 
 /* ===== GENERAL ===== */
 
+:root {
+  --accent-color: #5b23ff;
+  --warning-color: #D92243;
+  --muted-color: #f4f4f6;
 
+  --bg-primary: #4f518c;
 
-/* ===== SECTION ===== */
+  --font-primary: #091413;
+  --font-secondary: #907AD6;
+  --font-accent: #dabfff;
 
+  --hover-color: var(--font-accent);
+  --hover-bg: var(--bg-primary);
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+  "nav"
+  "header"
+  "main"
+  "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+
+  font-family: sans-serif;
+  color: var(--font-primary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 1rem;
+  padding: 0 0.5rem;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  color: var(--font-secondary);
+  font-size: clamp(1rem, 0.955rem + 0.23vw, 1.125rem);
+  font-weight: 600;
+}
+
+/* ===== Navigation ===== */
+
+.nav {
+  grid-area: nav;
+
+  margin-top: .5rem;
+  padding: .5rem 0;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Logo */
+
+.logo {
+  --hover-color: var(--font-accent);
+
+  color: var(--accent-color);
+  font-size: clamp(1.125rem, 0.989rem + 0.68vw, 1.5rem);
+  font-weight: 700;
+}
+
+.logo > a {
+  color: var(--accent-color);
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+/* Menu */
+
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.menu-item {
+}
+
+.menu-link {
+  padding: .5rem;
+  border-radius: .25rem;
+  font-size: clamp(1rem, 0.955rem + 0.23vw, 1.125rem);
+  font-weight: 500;
+  color: var(--accent-color);
+  transition: color .5s ease-in, background-color .3s ease-in;
+
+  &:hover {
+    color: var(--hover-color);
+    background-color: var(--bg-primary);
+  }
+}
+
+/* ===== Hero ===== */
+
+.hero {
+  grid-area: header;
+
+  padding: 2rem 0;
+  background: linear-gradient(to top, var(--bg-primary), var(--font-secondary));
+}
+
+.hero-title {
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 1.227rem + 1.36vw, 2.25rem);
+  font-weight: 700;
+  color: var(--font-accent);
+}
+
+.hero-text {
+  color: #fff;
+}
+
+/* ===== Sidebar ===== */
+
+.layout {
+  grid-area: main;
+}
+
+.layout-wrapper {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.sidebar {
+  border-right: 2px solid var(--muted-color);
+}
+
+/* Categories */
+
+.categories {
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 1rem;
+}
+
+.category-link {
+  color: var(--font-primary);
+  transition: color .3s ease-in;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+/* ===== Content ===== */
+
+.content {
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Product card */
+
+.product-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-image {
+}
+
+.card-image img {
+  object-fit: cover;
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--font-primary);
+}
+.card-description {
+  margin-bottom: 1rem;
+}
+
+.card-price {
+  font-size: clamp(1.25rem, 1.159rem + 0.45vw, 1.5rem);
+  font-weight: 600;
+  color: var(--warning-color);
+}
+
+/* ===== Footer ===== */
+
+.footer {
+  grid-area: footer;
+
+  padding: 2rem 0;
+  background-color: var(--bg-primary);
+  color: var(--font-secondary);
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-address,
+.footer-contacts {
+  line-height: 1.5;
+  text-align: center;
+}
+
+.footer-link {
+  color: inherit;
+}
+
+/* ===== @MEDIA ===== */
+
+@media (max-width: 768px) {
+  .layout-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    grid-template-columns: 1fr;
+  }
+}

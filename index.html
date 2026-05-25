@@ -4,97 +4,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>Project</title>
+  <title>Online Store</title>
 </head>
 <body>
   
-  <nav class="site-nav">
-    <h3 class="logo">Our Store</h3>
-    <ul class="site-menu">
-      <li class="site-menu__item">
-        <a href="#!" class="site-menu__link">Home</a>
-      </li>
-      <li class="site-menu__item">
-        <a href="#!" class="site-menu__link">About us</a>
-      </li>
-      <li class="site-menu__item">
-        <a href="#!" class="site-menu__link">Contact us</a>
-      </li>
-    </ul>
-  </nav>
-
-  <header class="site-header">
-    <h1 class="title">Welcome to our store</h1>
-    <p>We offer a wide collection of electronics, phones, books, and games at low prices.</p>
-  </header>
-
-  <main class="main">
-    <aside class="site-filters">
-      <h3 class="section-heading">Product Categories</h3>
-      <nav class="nav-categories">
-        <ul>
-          <li>
-            <a href="#!" class="nav-link">Books</a>
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-wrapper">
+        <h3 class="logo"><a href="#!">Our Store</a></h3>
+    
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="#!" class="menu-link">Home</a>
           </li>
-          <li>
-            <a href="#!" class="nav-link">Games</a>
+          <li class="menu-item">
+            <a href="#!" class="menu-link">About us</a>
           </li>
-          <li>
-            <a href="#!" class="nav-link">Phones</a>
-          </li>
-          <li>
-            <a href="#!" class="nav-link">Microphones</a>
-          </li>
-          <li>
-            <a href="#!" class="nav-link">Tablets</a>
+          <li class="menu-item">
+            <a href="#!" class="menu-link">Contact us</a>
           </li>
         </ul>
-      </nav>
-    </aside>
+      </div>
+    </div>
+  </nav>
 
+  <header class="hero">
+    <div class="container">
+      <h1 class="hero-title">Welcome to our store</h1>
+      <p class="hero-text">We offer a wide collection of electronics, phones, books, and games at low prices.</p>
+    </div>
+  </header>
 
-    <section class="site-content">
-      <h3 class="section-heading">Home page</h3>
+  <main class="layout">
+    <div class="container">
+      <div class="layout-wrapper">
 
-      <section class="products">
+        <aside class="sidebar">
+          <nav class="categories">
+            <h3 class="section-title">Product Categories</h3>
+    
+            <ul class="category-list">
+              <li>
+                <a href="#!" class="category-link">Books</a>
+              </li>
+              <li>
+                <a href="#!" class="category-link">Games</a>
+              </li>
+              <li>
+                <a href="#!" class="category-link">Phones</a>
+              </li>
+              <li>
+                <a href="#!" class="category-link">Microphones</a>
+              </li>
+              <li>
+                <a href="#!" class="category-link">Tablets</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+    
+        <section class="content">
+          <h3 class="section-title">Home page</h3>
+    
+          <section class="products">
+    
+            <article class="product-card">
+              <div class="card-image">
+                <img src="https://placehold.co/200?text=Product" width="150" height="150" loading="lazy" alt="Tablet">
+              </div>
 
-        <article class="card">
-          <div class="card__image">
-            <img src="https://placehold.co/200?text=Product" alt="Tablet">
-          </div>
-          <h4 class="card__title">Lectrus Tablet Customized Cover, Android 9.0</h4>
-          <p class="card__content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, accusantium dicta! Aut debitis earum tempore?
-          </p>
-          <span class="card__price">119€</span>
-        </article>
+              <div class="card-content">
+                <h4 class="card-title">Lectrus Tablet Customized Cover, Android 9.0</h4>
+                <p class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, accusantium dicta! Aut debitis earum tempore?
+                </p>
+                <span class="card-price">119€</span>
+              </div>
+            </article>
+    
+            <article class="product-card">
+              <div class="card-image">
+                <img src="https://placehold.co/200?text=Product" width="150" height="150" loading="lazy" alt="Microphone">
+              </div>
 
-        <article class="card">
-          <div class="card__image">
-            <img src="" alt="Tablet">
-          </div>
-          <h4 class="card__title">Audio-Technica AT2020 Cardioid</h4>
-          <p class="card__content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut alias ad itaque, nisi quasi quam.
-          </p>
-          <span class="card__price">99€</span>
-        </article>
+              <div class="card-content">
+                <h4 class="card-title">Audio-Technica AT2020 Cardioid</h4>
+                <p class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut alias ad itaque, nisi quasi quam.
+                </p>
+                <span class="card-price">99€</span>
+              </div>
+            </article>
+    
+            <article class="product-card">
+              <div class="card-image">
+                <img src="https://placehold.co/200?text=Product" width="150" height="150" loading="lazy" alt="Book">
+              </div>
 
-        <article class="card">
-          <div class="card__image">
-            <img src="" alt="Tablet">
-          </div>
-          <h4 class="card__title">Coding All-in-One For Dummies</h4>
-          <p class="card__content">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem corrupti libero maiores voluptatibus, dolorem perferendis?
-          </p>
-          <span class="card__price">19.99€</span>
-        </article>
+              <div class="card-content">
+                <h4 class="card-title">Coding All-in-One For Dummies</h4>
+                <p class="card-description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem corrupti libero maiores voluptatibus, dolorem perferendis?
+                </p>
+                <span class="card-price">19.99€</span>
+              </div>
+            </article>
+    
+          </section>
+        </section>
 
-      </section>
-
-    </section>
+      </div>
+    </div>
   </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-wrapper">
+        <p>Our Store &copy;</p>
+        <address class="footer-address">
+          1517 E Veterans Memorial Hwy <br>
+          Blanchard, USA 73010
+        </address>
+        <address class="footer-contacts">
+          <a href="mailto:contact@ourstore.com" class="footer-link">contact@ourstore.com</a><br>
+          <a href="tel:+14054853131" class="footer-link">+1 (405) 485-3131</a>
+        </address>
+      </div>
+    </div>
+  </footer>
 
   <!-- <script src="js/main.js"></script> -->
 
