@@ -1,6 +1,7 @@
             <article class="product-card">
               <div class="card-image">
-                <img src="/img/<?= htmlspecialchars($product["image"]) ?>" 
+                <!-- TODO: add to img path category var -->
+                <img src="../../public/img/products/books/<?= htmlspecialchars($product["image"]) ?>" 
                      width="150" height="150" 
                      loading="lazy" 
                      alt="<?= htmlspecialchars($product["title"]) ?>">
