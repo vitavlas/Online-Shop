@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . "../app/core/Database.php";
-require __DIR__ . "../app/core/Router.php";
-require __DIR__ . "../app/core/Controller.php";
+require __DIR__ . "/../app/core/Database.php";
+require __DIR__ . "/../app/core/Router.php";
+require __DIR__ . "/../app/core/Controller.php";
 
-require __DIR__ . "../app/models/Product.php";
-require __DIR__ . "../app/controllers/HomeController.php";
+require __DIR__ . "/../app/models/Product.php";
+require __DIR__ . "/../app/controllers/HomeController.php";
 
-$config = require __DIR__ . "../config/config.php";
+$config = require __DIR__ . "/../config/config.php";
 
 $router = new Router();
 

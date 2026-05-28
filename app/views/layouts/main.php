@@ -8,20 +8,20 @@
 </head>
 <body>
 
-<?php require __DIR__ . "../includes/nav.php"; ?>
-<?php require __DIR__ . "../includes/header.php"; ?>
+<?php require __DIR__ . "/../includes/nav.php"; ?>
+<?php require __DIR__ . "/../includes/header.php"; ?>
 
 <main class="layout">
     <div class="container">
         <div class="layout-wrapper">
 
-            <?php require __DIR__ . "../$vieFile.php"; ?>
+            <?php require __DIR__ . "/../$vieFile.php"; ?>
 
         </div>
     </div>
 </main>
 
-<?php require __DIR__ . "../includes/footer.php"; ?>
+<?php require __DIR__ . "/../includes/footer.php"; ?>
 
 </body>
 </html>

@@ -2,16 +2,19 @@
 
 class Router
 {
-    private array $routes = [];
+    private array $routes = [
+        "GET" => [],
+        "POST" => []
+    ];
 
     public function get(string $uri, mixed $action): void
     {
-        $this->$routes["GET"][$uri] = $action;
+        $this->routes["GET"][$uri] = $action;
     }
 
     public function resolve(string $uri, string $method): mixed
     {
-        $action = $this->$routes[$method][$uri] ?? null;
+        $action = $this->routes[$method][$uri] ?? null;
 
         if (!$action) {
             http_response_code(404);

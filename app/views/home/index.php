@@ -28,7 +28,7 @@
           <section class="products">
     
             <?php foreach ($products as $product): ?>
-                <?php require __DIR__ . "../includes/product-card.php"; ?>
+                <?php require __DIR__ . "/../includes/product-card.php"; ?>
             <?php endforeach; ?>
     
           </section>

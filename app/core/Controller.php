@@ -8,6 +8,6 @@ class Controller
 
         $viewFile = $view;
 
-        require __DIR__ . "../views/layouts/main.php";
+        require __DIR__ . "/../views/layouts/main.php";
     }
 }

@@ -7,6 +7,34 @@
 https://coolors.co/palette/dabfff-907ad6-4f518c-2c2a4a-7fdeff  
 https://www.colorhunt.co/palette/362f4f5b23ff008bffe4ff30
 
+**Apache**
+
+```
+# Virtual Hosts
+#
+<VirtualHost _default_:80>
+  ServerName localhost
+  ServerAlias localhost
+  DocumentRoot "${INSTALL_DIR}/www"
+  <Directory "${INSTALL_DIR}/www/">
+    Options +Indexes +Includes +FollowSymLinks +MultiViews
+    AllowOverride All
+    Require local
+  </Directory>
+</VirtualHost>
+
+# Online Shop
+<VirtualHost *:80>
+    ServerName online-shop.local
+    DocumentRoot "${INSTALL_DIR}/www/online-shop/public"
+
+    <Directory "${INSTALL_DIR}/www/online-shop/public/">
+        AllowOverride All
+        Require local
+    </Directory>
+</VirtualHost>
+```
+
 **Database**
 
 ```
