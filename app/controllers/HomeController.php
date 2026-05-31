@@ -6,7 +6,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $config = require __DIR__ . "/../config/config.php";
+        $config = require __DIR__ . "/../../config/config.php";
         $db = Database::connect($config);
 
         $this->productModel = new Product($db);
