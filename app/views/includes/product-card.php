@@ -1,13 +1,14 @@
 <article class="product-card">
     <div class="card-image">
-    <img src="https://placehold.co/200?text=Product" width="150" height="150" loading="lazy" alt="Tablet">
+    <img src="/img/products/books/<?= htmlspecialchars($product['image']) ?>"
+         width="150" height="150" loading="lazy" alt="<?= htmlspecialchars($product['title']) ?>">
     </div>
 
     <div class="card-content">
-    <h4 class="card-title">Lectrus Tablet Customized Cover, Android 9.0</h4>
+    <h4 class="card-title"><?= htmlspecialchars($product['title']) ?></h4>
     <p class="card-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, accusantium dicta! Aut debitis earum tempore?
+        <?= htmlspecialchars($product['description']) ?>
     </p>
-    <span class="card-price">119€</span>
+    <span class="card-price"><?= htmlspecialchars($product['price']) ?>€</span>
     </div>
 </article>

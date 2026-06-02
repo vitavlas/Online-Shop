@@ -2,5 +2,16 @@
 
 define("BASE_PATH", dirname(__DIR__));
 
-// TODO: insert correct includes here
-include BASE_PATH . "/app/views/layouts/main.php";
+// App parts
+require_once BASE_PATH . "/app/core/Router.php";
+require_once BASE_PATH . "/app/core/Database.php";
+require_once BASE_PATH . "/app/models/Product.php";
+require_once BASE_PATH . "/app/controllers/HomeController.php";
+
+// Resolve URL
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$method = $_SERVER['REQUEST_METHOD'];
+
+// Routing
+$router = new Router();
+$router->resolve($url, $method);

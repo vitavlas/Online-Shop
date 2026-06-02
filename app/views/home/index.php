@@ -26,7 +26,10 @@
     <h3 class="section-title">Home page</h3>
 
     <section class="products">
-        <!-- TODO: List product cards -->
+
+        <?php foreach ($products as $product): ?>
         <?php include BASE_PATH . "/app/views/includes/product-card.php"; ?>
+        <?php endforeach; ?>
+
     </section>
 </section>

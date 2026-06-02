@@ -15,8 +15,7 @@
     <div class="container">
         <div class="layout-wrapper">
             
-            <?php // TODO: add content logic here ?>
-            <?php include BASE_PATH . "/app/views/home/index.php"; ?>
+            <?php include BASE_PATH . "/app/views/$view.php"; ?>
 
         </div>
     </div>
