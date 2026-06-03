@@ -9,10 +9,20 @@ class Product
         $this->db = $db;
     }
 
-    public function getAll()
+    public function getAllProducts()
     {
-        $dbname = "products";
-        $stmt = $this->db->query("SELECT * FROM $dbname");
+        $stmt = $this->db->query("
+            SELECT p.*, c.name AS category
+            FROM products p
+            JOIN categories c ON p.category = c.id
+        ");
+        
+        return $stmt->fetchAll();
+    }
+        
+    public function getAllCategories()
+    {
+        $stmt = $this->db->query("SELECT * FROM categories");
 
         return $stmt->fetchAll();
     }

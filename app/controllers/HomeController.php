@@ -13,18 +13,21 @@ class HomeController
 
     public function index()
     {
-        $products = $this->productModel->getAll();
+        $products = $this->productModel->getAllProducts();
+        $categories = $this->productModel->getAllCategories();
+
         $view = "home/index";
 
         $this->render([
             'view' => $view,
             "products" => $products,
+            "categories" => $categories,
         ]);
     }
 
     public function render($data)
     {
-        ['view' => $view, 'products' => $products] = $data;
+        ['view' => $view, 'products' => $products, "categories" => $categories] = $data;
 
         require_once BASE_PATH . "/app/views/layouts/main.php";
     }

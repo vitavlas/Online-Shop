@@ -1,6 +1,6 @@
 <article class="product-card">
     <div class="card-image">
-    <img src="/img/products/books/<?= htmlspecialchars($product['image']) ?>"
+    <img src="/img/products/<?= htmlspecialchars($product['category']) ?>/<?= htmlspecialchars($product['image']) ?>"
          width="150" height="150" loading="lazy" alt="<?= htmlspecialchars($product['title']) ?>">
     </div>
 
