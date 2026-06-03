@@ -39,15 +39,13 @@ https://www.colorhunt.co/palette/362f4f5b23ff008bffe4ff30
 
 ### Database
 
-**Table 'products'**
-
 ``` SQL
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 26, 2026 at 09:30 AM
+-- Generation Time: Jun 03, 2026 at 10:55 AM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -68,6 +66,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'books'),
+(2, 'games'),
+(3, 'phones'),
+(4, 'tablets'),
+(5, 'microphones');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -78,42 +100,43 @@ CREATE TABLE IF NOT EXISTS `products` (
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
-  `category` varchar(100) NOT NULL,
+  `category` int UNSIGNED DEFAULT NULL,
   `meta_description` varchar(255) DEFAULT NULL,
   `meta_keywords` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  KEY `fk_products_categories` (`category`)
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `title`, `description`, `image`, `price`, `category`, `meta_description`, `meta_keywords`) VALUES
+(22, 'Learn JavaScript Quickly: A Complete Beginner’s Guide to Learning JavaScript', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'javascript.jpg', 15.99, 1, NULL, NULL),
+(23, 'Node.js: Novice to Ninja 1st Edition', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'node.jpg', 39.95, 1, NULL, NULL),
+(24, 'JavaScript from Beginner to Professional: Learn JavaScript quickly', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'machine-learning.jpg', 34.95, 1, NULL, NULL),
+(25, 'Coding All-in-One For Dummies', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'coding.jpg', 19.99, 1, NULL, NULL),
+(26, 'Star Wars Squadrons', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'star-wars.jpg', 39.99, 2, NULL, NULL),
+(27, 'M4 Tank Brigade', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tank.jpg', 14.95, 2, NULL, NULL),
+(28, 'Far Cry Primal - PC Standard Edition', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'farcry.jpg', 34.95, 2, NULL, NULL),
+(29, 'Battlefield 3 [Download]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'batlefield.jpg', 49.99, 2, NULL, NULL),
+(30, 'SAMSUNG Galaxy S22 Ultra Cell Phone,', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phone-1.jpg', 1.14, 3, NULL, NULL),
+(31, 'Apple iPhone 12 Pro, 512GB', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phone-2.jpg', 919.99, 3, NULL, NULL),
+(32, 'Moto G Power | 2021 | 3-Day battery', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phone-3.jpg', 160.95, 3, NULL, NULL),
+(33, 'Moto G7 Plus | Unlocked | Made for US by Motorola', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phone-4.jpg', 201.00, 3, NULL, NULL),
+(34, 'Rode PodMic Cardioid Dynamic Broadcast Microphone', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'mic-1.jpg', 99.00, 5, NULL, NULL),
+(35, 'Audio-Technica AT2020 Cardioid', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'mic-2.jpg', 99.00, 5, NULL, NULL),
+(36, 'Elgato Wave:3 - Premium Studio Quality USB ', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'mic-3.jpg', 149.95, 5, NULL, NULL),
+(37, 'Razer Seiren X USB Streaming Microphone: Professional Grade', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'mic-4.jpg', 59.00, 5, NULL, NULL),
+(38, 'SAMSUNG SM-T290NZKAXAR, Galaxy Tab A 8.0 32 GB', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablet-1.jpg', 99.00, 4, NULL, NULL),
+(39, 'Lectrus Tablet Customized Cover, Android 9.0', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablet-2.jpg', 119.00, 4, NULL, NULL),
+(40, '10 Inch Tablet and Tablet Case Bundle, Android 9.0 Tablet 2GB RAM', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablet-3.jpg', 149.95, 4, NULL, NULL),
+(41, 'Lenovo IdeaTab A2109 9-Inch 16 GB Tablet', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablet-4.jpg', 199.00, 4, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-```
-
-**Filling table 'products' with test data**
-``` SQL
-INSERT INTO `products_2` (`image`, `title`, `price`, `description`, `category`) VALUES
-('javascript.jpg', 'Learn JavaScript Quickly: A Complete Beginner’s Guide to Learning JavaScript', 15.99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'books'),
-('node.jpg', 'Node.js: Novice to Ninja 1st Edition', 39.95, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'books'),
-('machine-learning.jpg', 'JavaScript from Beginner to Professional: Learn JavaScript quickly', 34.95, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'books'),
-('coding.jpg', 'Coding All-in-One For Dummies', 19.99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'books'),
-('star-wars.jpg', 'Star Wars Squadrons', 39.99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'games'),
-('tank.jpg', 'M4 Tank Brigade', 14.95, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'games'),
-('farcry.jpg', 'Far Cry Primal - PC Standard Edition', 34.95, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'games'),
-('batlefield.jpg', 'Battlefield 3 [Download]', 49.99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'games'),
-('phone-1.jpg', 'SAMSUNG Galaxy S22 Ultra Cell Phone,', 1.136, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phones'),
-('phone-2.jpg', 'Apple iPhone 12 Pro, 512GB', 919.99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phones'),
-('phone-3.jpg', 'Moto G Power | 2021 | 3-Day battery', 160.95, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phones'),
-('phone-4.jpg', 'Moto G7 Plus | Unlocked | Made for US by Motorola', 201, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'phones'),
-('mic-1.jpg', 'Rode PodMic Cardioid Dynamic Broadcast Microphone', 99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'microphones'),
-('mic-2.jpg', 'Audio-Technica AT2020 Cardioid', 99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'microphones'),
-('mic-3.jpg', 'Elgato Wave:3 - Premium Studio Quality USB ', 149.95, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'microphones'),
-('mic-4.jpg', 'Razer Seiren X USB Streaming Microphone: Professional Grade', 59, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'microphones'),
-('tablet-1.jpg', 'SAMSUNG SM-T290NZKAXAR, Galaxy Tab A 8.0 32 GB', 99, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablets'),
-('tablet-2.jpg', 'Lectrus Tablet Customized Cover, Android 9.0', 119, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablets'),
-('tablet-3.jpg', '10 Inch Tablet and Tablet Case Bundle, Android 9.0 Tablet 2GB RAM', 149.95, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablets'),
-('tablet-4.jpg', 'Lenovo IdeaTab A2109 9-Inch 16 GB Tablet', 199, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi quas eius quod.', 'tablets');
 ```
 
 ## 🧱 Project Structure
@@ -122,6 +145,7 @@ INSERT INTO `products_2` (`image`, `title`, `price`, `description`, `category`) 
 digital-depot/
 │
 ├── public/
+│   ├── .htaccess
 │   ├── index.php
 │   ├── css/
 │   ├── js/
@@ -149,6 +173,7 @@ digital-depot/
 │           ├── nav.php
 │           ├── header.php
 │           ├── footer.php
+│           └── category-nav.php
 │           └── product-card.php
 │
 ├── config/
