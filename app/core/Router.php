@@ -12,6 +12,7 @@ class Router
     public function resolve($url, $method)
     {
         if (!isset($this->routes[$url])) {
+            // TODO: create 404 page
             echo "404 - required page does not exist!";
             return;
         }

@@ -1,14 +1,14 @@
 <?php
 
-class PageController
+class PageController extends Controller
 {
     private $productModel;
 
     public function __construct()
     {
-        $db = Database::connect();
+        parent::__construct();
 
-        $this->productModel = new Product($db);
+        $this->productModel = new Product($this->db);
     }
 
     public function index()
@@ -34,19 +34,7 @@ class PageController
     public function contacts()
     {
         $view = "contacts/index";
-        
+
         $this->render($view);
-    }
-
-    public function render($view, $data = [])
-    {
-        $viewFile = BASE_PATH . "/app/views/$view.php";
-        
-        if (!file_exists($viewFile)) {
-            // TODO: change to 404
-            throw new Exception("View file $viewFile not found!");
-        }
-
-        require_once BASE_PATH . "/app/views/layouts/main.php";
     }
 }

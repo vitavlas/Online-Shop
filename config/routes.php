@@ -13,4 +13,8 @@ return [
         'controller' => 'PageController',
         'action' => 'contacts',
     ],
+    // '/category/' => [
+    //     'controller' => 'ProductController',
+    //     'action' => 'showAllByCategory',
+    // ],
 ];

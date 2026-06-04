@@ -26,4 +26,17 @@ class Product
 
         return $stmt->fetchAll();
     }
+
+    public function getAllByCategory($cat_id)
+    {
+        $stmt = $this->db->prepare("
+            SELECT * FROM products p
+            JOIN categories c ON p.category = c.id
+            WHERE c.id = :id
+        ");
+
+        $stmt->execute(['id' => $cat_id]);
+
+        return $stmt->fetchAll();
+    }
 }
