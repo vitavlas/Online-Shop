@@ -6,7 +6,7 @@ define("BASE_PATH", dirname(__DIR__));
 require_once BASE_PATH . "/app/core/Router.php";
 require_once BASE_PATH . "/app/core/Database.php";
 require_once BASE_PATH . "/app/models/Product.php";
-require_once BASE_PATH . "/app/controllers/HomeController.php";
+require_once BASE_PATH . "/app/controllers/PageController.php";
 
 // Resolve URL
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

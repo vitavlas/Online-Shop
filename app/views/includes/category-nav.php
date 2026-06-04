@@ -2,7 +2,7 @@
     <h3 class="section-title">Product Categories</h3>
 
     <ul class="category-list">
-        <?php foreach ($categories as $category): ?>
+        <?php foreach ($data['categories'] as $category): ?>
 
         <li>
             <a 
