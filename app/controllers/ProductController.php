@@ -12,8 +12,10 @@ class ProductController extends Controller
         $this->productModel = new Product($this->db);
     }
 
-    public function showAllByCategory($cat_id)
+    public function showAllByCategory($cat)
     {
-        $products = $this->productModel->getAllByCategory($cat_id);
+        $products = $this->productModel->getAllByCategory($cat);
+
+        $view = "product/index";
     }
 }

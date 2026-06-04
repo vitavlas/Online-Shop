@@ -1,20 +1,20 @@
 <?php
 
 return [
-    '/' => [
+    '#^/$#' => [
         'controller' => 'PageController',
         'action' => 'index',
     ],
-    '/about' => [
+    '#^/about$#' => [
         'controller' => 'PageController',
         'action' => 'about',
     ],
-    '/contacts' => [
+    '#^/contacts$#' => [
         'controller' => 'PageController',
         'action' => 'contacts',
     ],
-    // '/category/' => [
-    //     'controller' => 'ProductController',
-    //     'action' => 'showAllByCategory',
-    // ],
+    '#^/category/([a-zA-Z-]+)$#' => [
+        'controller' => 'ProductController',
+        'action' => 'showAllByCategory',
+    ],
 ];

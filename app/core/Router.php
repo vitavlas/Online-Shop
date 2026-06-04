@@ -11,16 +11,21 @@ class Router
 
     public function resolve($url, $method)
     {
-        if (!isset($this->routes[$url])) {
-            // TODO: create 404 page
-            echo "404 - required page does not exist!";
-            return;
+        foreach ($this->routes as $pattern => $route) {
+
+            if (preg_match($pattern, $url, $matches)) {
+                // Getting the slug 
+                array_shift($matches);
+                
+                $controllerName = $route['controller'];
+                $action = $route['action'];
+                
+                $controller = new $controllerName();
+                return $controller->$action(...$matches);
+                }
         }
-
-        $controllerName = $this->routes[$url]['controller'];
-        $controllerAction = $this->routes[$url]['action'];
-
-        $controller = new $controllerName();
-        $controller->$controllerAction();
+        
+        // TODO: 404 page
+        throw new Exception("Requested route not found!");
     }
 }
