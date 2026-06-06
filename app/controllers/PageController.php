@@ -20,6 +20,8 @@ class PageController extends Controller
         $view = "home/index";
 
         $this->render($view, [
+            "pageTitle" => "Home",
+            "isFull" => false,
             "products" => $products,
             "categories" => $categories,
         ]);

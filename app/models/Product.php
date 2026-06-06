@@ -41,4 +41,17 @@ class Product
 
         return $stmt->fetchAll();
     }
+
+    public function getProductDetails($id)
+    {
+        $stmt = $this->db->prepare("
+            SELECT p.*, c.name AS category FROM products p
+            JOIN categories c ON p.category = c.id
+            WHERE p.id = :id
+        ");
+
+        $stmt->execute(["id" => $id]);
+
+        return $stmt->fetch();
+    }
 }

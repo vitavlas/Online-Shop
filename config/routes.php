@@ -17,4 +17,8 @@ return [
         'controller' => 'ProductController',
         'action' => 'showAllByCategory',
     ],
+    '#^/product/([0-9]+)$#' => [
+        'controller' => 'ProductController',
+        'action' => 'showProductDetails',
+    ],
 ];

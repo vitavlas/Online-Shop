@@ -5,7 +5,7 @@
 </aside>
 
 <section class="content">
-    <h3 class="content-title">Home</h3>
+    <h3 class="content-title"><?= htmlspecialchars($data["pageTitle"]) ?></h3>
 
     <div class="content-body">
         <section class="section product-list">
