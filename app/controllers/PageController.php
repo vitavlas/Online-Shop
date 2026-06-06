@@ -13,6 +13,7 @@ class PageController extends Controller
 
     public function index()
     {
+        // $limit = 10; // TEST: getAllProducts($limit)
         $products = $this->productModel->getAllProducts();
         $categories = $this->productModel->getAllCategories();
 

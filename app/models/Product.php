@@ -9,12 +9,14 @@ class Product
         $this->db = $db;
     }
 
-    public function getAllProducts()
+    public function getAllProducts($limit = 5)
     {
         $stmt = $this->db->query("
             SELECT p.*, c.name AS category
             FROM products p
             JOIN categories c ON p.category = c.id
+            ORDER BY RAND()
+            LIMIT $limit
         ");
         
         return $stmt->fetchAll();
@@ -30,12 +32,12 @@ class Product
     public function getAllByCategory($cat)
     {
         $stmt = $this->db->prepare("
-            SELECT * FROM products p
+            SELECT p.*, c.name AS category FROM products p
             JOIN categories c ON p.category = c.id
             WHERE c.name = :category
         ");
 
-        $stmt->execute(['category' => strtolower($cat)]);
+        $stmt->execute(['category' => $cat]);
 
         return $stmt->fetchAll();
     }

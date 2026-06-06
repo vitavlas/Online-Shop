@@ -2,7 +2,6 @@
 
 class ProductController extends Controller
 {
-    // FIXME: change to protected + extends PageController
     private $productModel;
 
     public function __construct()
@@ -14,8 +13,17 @@ class ProductController extends Controller
 
     public function showAllByCategory($cat)
     {
-        $products = $this->productModel->getAllByCategory($cat);
+        $category = strtolower($cat);
 
-        $view = "product/index";
+        $allCategories = $this->productModel->getAllCategories();
+        $products = $this->productModel->getAllByCategory($category);
+
+        $view = "category/index";
+
+        $this->render($view, [
+            "categories" => $allCategories,
+            "products" => $products,
+            "category" => $category,
+        ]);
     }
 }
