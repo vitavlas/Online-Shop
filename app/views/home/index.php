@@ -5,13 +5,16 @@
 </aside>
 
 <section class="content">
-    <h3 class="section-title">Home</h3>
+    <h3 class="content-title">Home</h3>
 
-    <section class="products">
+    <div class="content-body">
+        <section class="section product-list">
+    
+            <?php foreach ($data['products'] as $product): ?>
+            <?php include BASE_PATH . "/app/views/includes/product-card.php"; ?>
+            <?php endforeach; ?>
+    
+        </section>
+    </div>
 
-        <?php foreach ($data['products'] as $product): ?>
-        <?php include BASE_PATH . "/app/views/includes/product-card.php"; ?>
-        <?php endforeach; ?>
-
-    </section>
 </section>
