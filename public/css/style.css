@@ -11,6 +11,7 @@
   --muted-color: #f4f4f6;
 
   --bg-primary: #4f518c;
+  --bg-active: rgb(218 191 255 / .3); /* --font-accent with 30% opacity */
 
   --font-primary: #091413;
   --font-secondary: #907AD6;
@@ -127,10 +128,14 @@ body {
   color: var(--accent-color);
   transition: color .5s ease-in, background-color .3s ease-in;
 
-  &:hover {
+  &:hover:not(.menu-link--active) {
     color: var(--hover-color);
-    background-color: var(--bg-primary);
+    background-color: var(--hover-bg);
   }
+}
+
+.menu-link--active {
+  background-color: var(--bg-active);
 }
 
 /* ===== Hero ===== */
@@ -243,10 +248,12 @@ body {
 }
 
 .card-image {
+  border-radius: .25rem;
   transition: transform .3s ease-in;
 }
 
 .card-image img {
+  border-radius: .25rem;
   object-fit: cover;
 }
 

@@ -4,6 +4,8 @@ define("BASE_PATH", dirname(__DIR__));
 define("BASE_URL", "/");
 
 // App parts
+require_once BASE_PATH . "/app/helpers/helpers.php";
+
 require_once BASE_PATH . "/app/core/Router.php";
 require_once BASE_PATH . "/app/core/Database.php";
 
