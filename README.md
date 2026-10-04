@@ -1,51 +1,105 @@
-# Online Shop
+# Digital Depot
 
-## 💡 Resources
+Digital Depot is a simple e-commerce web application built with PHP using a custom MVC architecture. The project demonstrates basic principles of routing, controllers, models, views, reusable components, and database interaction.  
 
-**Color Palette**
+This project is intentionally built without a PHP framework in order to demonstrate the basic concepts behind an MVC web application.
 
-https://coolors.co/palette/dabfff-907ad6-4f518c-2c2a4a-7fdeff  
-https://www.colorhunt.co/palette/362f4f5b23ff008bffe4ff30
+## ✨ Features
+
+- Product catalog
+- Simple product filtering by category
+- Detailed product information
+- Custom MVC architecture
+- MySQL database integration using PDO
+
+## 🧱 Project Structure
+
+The project uses `index.php` as a simple front controller. All requests are passed to the custom router, which determines the corresponding controller and action.
+
+```
+FIXME:
+DIGITAL-DEPOT/
+├── app/
+│   ├── controllers/
+│   │   ├── PageController.php
+│   │   └── ProductController.php
+│   │
+│   ├── core/
+│   │   ├── Controller.php
+│   │   ├── Database.php
+│   │   └── Router.php
+│   │
+│   ├── helpers/
+│   │   └── helpers.php
+│   │
+│   ├── models/
+│   │   └── Product.php
+│   │
+│   └── views/
+│       ├── about/
+│       │   └── index.php
+│       │
+│       ├── contacts/
+│       │   └── index.php
+│       │
+│       ├── home/
+│       │   └── index.php
+│       │
+│       ├── includes/
+│       │   ├── category-nav.php
+│       │   ├── footer.php
+│       │   ├── header.php
+│       │   ├── nav.php
+│       │   └── product-card.php
+│       │
+│       └── layouts/
+│           └── main.php
+│
+├── config/
+│   ├── db.php
+│   └── routes.php
+│
+├── public/
+│   ├── css/
+│   ├── img/
+│   ├── js/
+│   ├── .htaccess
+│   └── index.php
+│
+├── .htaccess
+└── README.md
+```
+
+### Request Flow
+
+A typical request follows this flow:  
+
+`Browser → public/index.php → Router → Controller → Model → Database → Controller → View → Browser`
+
+### Architecture
+
+The application follows a lightweight custom MVC structure:
+
+- **Controllers** process requests and prepare data for views
+- **Models** handle database-related operations
+- **Views** are responsible for rendering HTML
+- **Router** matches the requested URI to a controller action
+- **Helpers** contain reusable functions that are not tied to a specific class
+- **Config** contains application configuration (db connection, routes etc.)
 
 ## ⚙️ Settings
 
-### Apache
-
-```
-# Virtual Hosts
-#
-<VirtualHost _default_:80>
-  ServerName localhost
-  ServerAlias localhost
-  DocumentRoot "${INSTALL_DIR}/www"
-  <Directory "${INSTALL_DIR}/www/">
-    Options +Indexes +Includes +FollowSymLinks +MultiViews
-    AllowOverride All
-    Require local
-  </Directory>
-</VirtualHost>
-
-# Online Shop
-<VirtualHost *:80>
-    ServerName online-shop.local
-    DocumentRoot "${INSTALL_DIR}/www/online-shop/public"
-
-    <Directory "${INSTALL_DIR}/www/online-shop/public/">
-        AllowOverride All
-        Require local
-    </Directory>
-</VirtualHost>
-```
-
 ### Database
 
-``` SQL
+The application uses MySQL for storing product data with the following tables: categories and products.
+
+```sql
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 03, 2026 at 10:55 AM
+-- Generation Time: Oct 03, 2026 at 10:01 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -139,44 +193,32 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 ```
 
-## 🧱 Project Structure
+### Database Connection
+
+Update the database connection settings in config/database.php according to **your** local MySQL environment.
+
+### Apache
+
+Add the following Virtual Host configuration to the Apache configuration file:
 
 ```
-digital-depot/
-│
-├── public/
-│   ├── .htaccess
-│   ├── index.php
-│   ├── css/
-│   ├── js/
-│   └── img/
-│
-├── app/
-│   ├── core/
-│   │   ├── Router.php
-│   │   ├── Database.php
-│   │
-│   ├── controllers/
-│   │   └── HomeController.php
-│   │
-│   ├── models/
-│   │   └── Product.php
-│   │
-│   └── views/
-│       ├── layouts/
-│       │   └── main.php
-│       │
-│       ├── home/
-│       │   └── index.php
-│       │
-│       └── includes/
-│           ├── nav.php
-│           ├── header.php
-│           ├── footer.php
-│           └── category-nav.php
-│           └── product-card.php
-│
-├── config/
-│   └── db.php
-│   └── routes.php
+# Online Shop
+<VirtualHost *:80>
+    ServerName online-shop.local
+    DocumentRoot "${INSTALL_DIR}/www/online-shop/public"
+
+    <Directory "${INSTALL_DIR}/www/online-shop/public/">
+        AllowOverride All
+        Require local
+    </Directory>
+</VirtualHost>
 ```
+
+## 🚀 Getting Started
+
+The project can be run using a local environment such as WAMP.
+
+1. Clone the repository [https://github.com/vitavlas/Online-Shop.git](https://github.com/vitavlas/Online-Shop.git)
+2. Create a MySQL database named `digital_depot`
+3. Import the SQL file as described in **Settings → Database**
+4. Open the project through your local web server
