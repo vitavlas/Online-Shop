@@ -60,8 +60,17 @@ DIGITAL-DEPOT/
 │
 ├── public/
 │   ├── css/
+│   │   ├── reset.css
+│   │   └── style.css
+│   │
 │   ├── img/
+│   │   ├── products/
+│   │   ├── favicon-32x32.png
+│   │   └── favicon.svg
+│   │
 │   ├── js/
+│   │   └── main.js
+│   │
 │   ├── .htaccess
 │   └── index.php
 │
