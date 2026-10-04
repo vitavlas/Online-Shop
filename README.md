@@ -17,7 +17,6 @@ This project is intentionally built without a PHP framework in order to demonstr
 The project uses `index.php` as a simple front controller. All requests are passed to the custom router, which determines the corresponding controller and action.
 
 ```
-FIXME:
 DIGITAL-DEPOT/
 ├── app/
 │   ├── controllers/
